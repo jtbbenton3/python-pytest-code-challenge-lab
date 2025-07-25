@@ -28,3 +28,14 @@ def test_long_string():
 # Boundary Cases
 def test_two_chars():
     assert longest_palindromic_substring("aa") == "aa"
+
+# Additional Edge Cases
+def test_mixed_case():
+    assert longest_palindromic_substring("RaCeCaR") == "aCeCa"
+
+def test_max_length_no_palindrome():
+    max_length_string = "".join(chr(i) for i in range(97, 97 + 1000))  # a to dxe...
+    assert longest_palindromic_substring(max_length_string) == "a"
+
+def test_repeated_chars():
+    assert longest_palindromic_substring("aaa") in ["aaa", "aa"]
